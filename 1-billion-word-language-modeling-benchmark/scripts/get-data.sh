@@ -72,7 +72,7 @@ else
   mkdir ${DATA_DIR}/text.tokenized.shuffled
 fi
 ./scripts/split-input-data.perl \
-  --output_file_base="$PWD/${DATA_DIR}/text.tokenized.shuffled/wikipedia.pt" \
+  --output_file_base="${DATA_DIR}/text.tokenized.shuffled/wikipedia.pt" \
   --num_shards=100 \
   --input_file=${DATA_DIR}/text.tokenized/wikipedia.pt.shuffled.sorted.tokenized
 echo "Done splitting/shuffling corpus into 100 shards wikipedia.pt-000??-of-00100."
