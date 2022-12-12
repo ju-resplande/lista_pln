@@ -1,16 +1,14 @@
 import multiprocessing
 from time import time
+import os
 
 from gensim.models import Word2Vec
+from gensim.test.utils import datapath
 
 cores = multiprocessing.cpu_count() # Count the number of cores in a computer
 
-
-with open('data/wikipedia.pt.nilc') as f:
-    sentences = f.readlines()
-
-sentences = [sent.split() for sent in sentences]
-
+path = os.path.join(os.path.abspath('.'), 'data/wikipedia.pt.nilc')
+corpus_file = datapath(path)
 
 w2v_model = Word2Vec(min_count=20,
                      window=2,
@@ -23,7 +21,7 @@ w2v_model = Word2Vec(min_count=20,
 
 t = time()
 
-w2v_model.build_vocab(sentences, progress_per=10000)
+w2v_model.build_vocab(corpus_file=corpus_file, progress_per=10000)
 
 print('Time to build vocab: {} mins'.format(round((time() - t) / 60, 2)))
 

@@ -1,16 +1,14 @@
 import multiprocessing
 from time import time
+import os
 
 from gensim.models import FastText
+from gensim.test.utils import datapath
 
 cores = multiprocessing.cpu_count() # Count the number of cores in a computer
 
-
-with open('data/wikipedia.pt.nilc') as f:
-    sentences = f.readlines()
-
-sentences = [sent.split() for sent in sentences]
-
+path = os.path.join(os.path.abspath('.'), 'data/wikipedia.pt.nilc')
+corpus_file = datapath(path)
 
 ft_model = FastText(min_count=20,
                      window=2,
@@ -23,13 +21,13 @@ ft_model = FastText(min_count=20,
 
 t = time()
 
-ft_model.build_vocab(sentences, progress_per=10000)
+ft_model.build_vocab(corpus_file=corpus_file, progress_per=10000)
 
 print('Time to build vocab: {} mins'.format(round((time() - t) / 60, 2)))
 
 t = time()
 
-ft_model.train(sentences, total_examples=ft_model.corpus_count, epochs=30, report_delay=1)
+ft_model.train(corpus_file=corpus_file, total_words=ft_model.corpus_total_words, epochs=30, report_delay=1)
 
 print('Time to train the model: {} mins'.format(round((time() - t) / 60, 2)))
 
