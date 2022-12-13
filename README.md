@@ -40,3 +40,9 @@ python word2vec.py
 
 
 ## 4. Evaluation
+``` bash
+bash evaluate.sh glove
+bash evaluate.sh wang2vec
+bash evaluate.sh fasttext
+bash evaluate.sh word2vec
+```
