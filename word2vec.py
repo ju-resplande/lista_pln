@@ -27,9 +27,9 @@ print('Time to build vocab: {} mins'.format(round((time() - t) / 60, 2)))
 
 t = time()
 
-w2v_model.train(sentences, total_examples=w2v_model.corpus_count, epochs=30, report_delay=1)
+w2v_model.train(corpus_file=corpus_file, total_words=w2v_model.corpus_total_words, epochs=30, report_delay=1)
 
 print('Time to train the model: {} mins'.format(round((time() - t) / 60, 2)))
 
 
-w2v_model.save("models/word2vec.model")
+w2v_model.wv.save_word2vec_format("models/word2vec.kv", binary=False)

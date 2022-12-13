@@ -32,4 +32,4 @@ ft_model.train(corpus_file=corpus_file, total_words=ft_model.corpus_total_words,
 print('Time to train the model: {} mins'.format(round((time() - t) / 60, 2)))
 
 
-ft_model.save("models/fast_text.model")
+ft_model.wv.save_word2vec_format("models/fasttext.kv", binary=False)
