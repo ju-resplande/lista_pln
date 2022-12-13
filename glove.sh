@@ -1,2 +1,2 @@
-cd GLoVe
-bash demo.sh ../data/wikipedia.pt.nilc
+cd src/GLoVe
+bash demo.sh ../../data/wikipedia.pt.nilc
