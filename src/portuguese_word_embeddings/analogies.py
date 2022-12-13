@@ -33,7 +33,7 @@ if __name__ == "__main__":
     testset = args.t
 
     # use restriction?
-    restriction = None
+    restriction = 0
     if args.r:
         restriction = 30000
 
@@ -47,4 +47,4 @@ if __name__ == "__main__":
         binary=False,
         unicode_errors='ignore')
 
-    model.accuracy(testset, restrict_vocab=restriction)
+    model.evaluate_word_analogies(testset, restrict_vocab=restriction)
