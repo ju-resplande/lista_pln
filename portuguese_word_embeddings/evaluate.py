@@ -75,8 +75,8 @@ if __name__ == '__main__':
                         help='embedding model')
 
     parser.add_argument('lang',
-                        choices=['br', 'eu'],
-                        help='{br, eu} choose PT-BR or PT-EU testset')
+                        choices=['br', 'pt'],
+                        help='{br, pt} choose PT-BR or PT-PT testset')
 
     args = parser.parse_args()
     lang = args.lang
