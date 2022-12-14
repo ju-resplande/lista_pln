@@ -33,7 +33,7 @@ if __name__ == "__main__":
     testset = args.t
 
     # use restriction?
-    restriction = 0
+    restriction = None
     if args.r:
         restriction = 30000
 
