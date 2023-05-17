@@ -1,4 +1,4 @@
-# Lista nlp
+# Lista PLN
 
 ## Install requirements
 
